@@ -36,8 +36,8 @@ include "../initialConfig/conecta.php";
   
   ?>
   <div class="header-buttons">
-   <a href="telaLogin.php?professorLogin=<?php $professorLogin?>"><button class="btn btn-custom2" id="logInButton" style = "text-decoration:none">ENTRAR</button> </a>
-  <a href="telaCadastro.php?professorLogin=<?php $professorLogin?>"><button class="btn btn-custom1" id="signUpButton" style = "text-decoration:none">CADASTRAR-SE</button></a>
+   <a href="telaLogin.php?professorLogin=<?php echo $professorLogin?>"><button class="btn btn-custom2" id="logInButton" style = "text-decoration:none">ENTRAR</button> </a>
+  <a href="telaCadastro.php?professorLogin=<?php  echo $professorLogin?>"><button class="btn btn-custom1" id="signUpButton" style = "text-decoration:none">CADASTRAR-SE</button></a>
   </div>
 <?php }?>
 </header>

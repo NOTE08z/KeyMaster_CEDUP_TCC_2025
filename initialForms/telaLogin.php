@@ -21,7 +21,7 @@ $professorLogin = $_GET['professorLogin'];
       <div class="mb-3">
     
 
-    <button type="submit" class="btn btn-primary" id="cadastrarButton">Entrar</button>
+    <button type="submit" class="btn btn-primary" id="initialButton">Entrar</button>
     
     <a href="telaCadastro.php?professorLogin=<?php $professorLogin?>" class="formLink">Não Tem Cadastro?</a>
     
@@ -38,7 +38,7 @@ let senha = document.getElementById("senha");
 let p = document.getElementById("senhaMinima");
 
 p.style.display = "none";
-let button = document.getElementById("cadastrarButton");
+let button = document.getElementById("initialButton");
 button.disabled = true;
 senha.value.length = 0;
 console.log(senha.value.length);

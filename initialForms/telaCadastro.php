@@ -51,7 +51,7 @@ let confirmaSenha = document.getElementById("confirmaSenha");
 let p = document.getElementById("senhaMinima");
 
 p.style.display = "none";
-let button = document.getElementById("cadastrarButton");
+let button = document.getElementById("initialButton");
 button.disabled = true;
 senha.value.length = 0;
 console.log(senha.value.length);
