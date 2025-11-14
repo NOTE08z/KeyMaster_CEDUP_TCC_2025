@@ -9,7 +9,7 @@ $professorLogin = $_GET['professorLogin'];
 
   <div class="initial-container">
 
-    <form class="form-initial" id="formCadastro" action = "cadastroSubmit.php">
+    <form class="form-initial" id="formCadastro" action = "../initialForms/cadastroSubmit.php">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" name="nome" class="form-control" id="nome" value="">

@@ -1,13 +1,16 @@
 <?php
 include "../initialConfig/conecta.php";
 $nome = $_GET['nome'];
+echo "<br>".$nome;
 $email = $_GET['email'];
 $getsenha = $_GET['senha'];
 $senha = password_hash($getsenha, PASSWORD_ARGON2ID);
-$confirmaSenha = $_GET['confirmaSenha'];
+echo $senha;
 $professorLogin = $_GET['professorLogin'];
 
-if($professorLogin == true){
+echo "<br>".$professorLogin;
+
+if($professorLogin == "true"){
 $sql = "SELECT COUNT(*) FROM professor
         WHERE nome = :nome
         AND email = :email";
@@ -16,7 +19,7 @@ $stmt -> bindParam(':nome', $nome);
 $stmt -> bindParam(':email', $email);
 $stmt -> execute();
 }
-else if($professorLogin == false){
+else if($professorLogin == "false"){
 $sql = "SELECT COUNT(*) FROM administrador
         WHERE nome = :nome
         AND email = :email";
@@ -27,9 +30,10 @@ $stmt -> execute();
 }
 
 $count = (int)$stmt -> fetchColumn();
+echo "<br> ".$count;
 
-if($senha == $confirmaSenha && $count < 1){
-    if ($professorLogin == true){
+if($count < 6){
+    if ($professorLogin == "true"){
         $sql = "INSERT INTO professor (nome,email,senha) VALUES (:nome,:email,:senha)";
         $sql = $conn -> prepare($sql);
         $sql -> bindParam(':nome', $nome);
@@ -37,28 +41,31 @@ if($senha == $confirmaSenha && $count < 1){
         $sql -> bindParam(':senha', $senha);
         $sql -> execute();
 
-           header("Location: ../main/loginSubmit.php?professorLogin=$professorLogin&loginConfirmado=true");
+          header("Location: ../initialForms/loginSubmit.php?professorLogin=$professorLogin&loginConfirmado=true");
     exit;
         }
     
-    if ($professorLogin == false){
+    if ($professorLogin == "false"){
+        echo "<br>"."entrou aqui";
         $sql = "INSERT INTO administrador (nome,email,senha) VALUES (:nome,:email,:senha)";
         $sql = $conn -> prepare($sql);
         $sql -> bindParam(':nome', $nome);
         $sql -> bindParam(':email', $email);
         $sql -> bindParam(':senha', $senha);
         $sql -> execute();
-           header("Location: ../main/loginSubmit.php?professorLogin=$professorLogin&loginConfirmado=true");
+         header("Location: ../initialForms/loginSubmit.php?professorLogin=$professorLogin&loginConfirmado=true");
     exit;
         }
 
     }
-else if($senha != $confirmaSenha || $count >= 1 || empty($nome || $email || $senha)){
-   header("Location: ../main/telaCadastro.php?professorLogin=$professorLogin");
+else if($count >= 1 || empty($nome || $email || $senha)){
+     echo "<br>"." sss";
+  header("Location: ../initialForms/telaCadastro.php?professorLogin=$professorLogin");
     exit;
 }    
 else{
-  header("Location: ../main/telaCadastro.php?professorLogin=$professorLogin");
+        echo "<br>"." nnn";
+header("Location: ../initialForms/telaCadastro.php?professorLogin=$professorLogin");
     exit;
 }
 ?>
