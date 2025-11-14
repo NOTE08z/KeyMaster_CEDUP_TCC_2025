@@ -2,7 +2,8 @@
 include "../initialConfig/conecta.php";
 $nome = $_GET['nome'];
 $email = $_GET['email'];
-$senha = $_GET['senha'];
+$getsenha = $_GET['senha'];
+$senha = password_hash($getsenha, PASSWORD_ARGON2ID);
 $confirmaSenha = $_GET['confirmaSenha'];
 $professorLogin = $_GET['professorLogin'];
 
