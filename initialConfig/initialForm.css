@@ -1,0 +1,57 @@
+.initial-container {
+  width: 100vw;
+    height: 100vh;
+    background-color: #1c1c1c; /* ou outro fundo desejado */
+    display: flex;              /* Ativa flexbox */
+    justify-content: center;    /* Centraliza horizontalmente */
+    align-items: center;
+}
+
+.form-initial {
+  width: 380px;
+  background: rgba(10,10,10,0.95);
+  padding: 30px;
+  border-radius: 26px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  color: #fff;
+  margin-top: 80px;
+  
+}
+
+/* Inputs: transparent background, underline only */
+.form-initial .form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  border-radius: 0;
+  color: #fff;
+  box-shadow: none;
+  padding-left: 0;
+}
+
+.form-initial .form-label {
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
+/* Button: gold pill */
+.form-initial .btn-submit {
+  background: linear-gradient(180deg,#e3c55b,#cfa83a);
+  color: #111;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Small link style */
+.form-initial a {
+  color: #e3c55b;
+  text-decoration: underline;
+  margin-left: 12px;
+}
+
+.initialButton{
+  color: #e3c55b;
+}
