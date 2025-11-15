@@ -58,7 +58,7 @@ else{
 p.style.display = "none";
 }
 
-if(senha.value.length >= 3 && email.value.length >= 3){
+if(senha.value.length >= 8 && email.value.length >= 3){
 button.disabled = false;
 }
 else{

@@ -96,18 +96,16 @@ p2.style.display = "none";
 }
 
 if(senha.value.length >= 8 && confirmaSenha.value.length >= 8 && nome.value.length >= 3 && email.value.length >= 3){
-  
+
   button.disabled = false;
-    if(senha.value != confirmaSenha.value){
+  if(senha.value !== confirmaSenha.value){
     button.addEventListener("click",  buttonAlert);
-} 
+    } 
 }
 
 else if (senha.value.length < 2 || confirmaSenha.value.length < 2 || nome.value.length < 2 || email.value.length < 2){
 button.disabled = true;
-}
-
-}
+}}
 
 function buttonAlert(){
   alert("As senhas não coincidem. Por favor, verifique e tente novamente.");

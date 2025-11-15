@@ -1,5 +1,8 @@
 <?php
 include "cookies.php";
+echo $_COOKIE['nomeAdministrador'];
+echo $_COOKIE['emailAdministrador'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

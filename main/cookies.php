@@ -1,6 +1,6 @@
 <?php
 include "../initialConfig/conecta.php";
-
+if (isset($_GET['email']) || isset($_GET['professorLogin'])){
 $email = $_GET['email'];
 $professorLogin = $_GET['professorLogin'];
 
@@ -57,6 +57,5 @@ unset($_COOKIE['curso']);
 unset($_COOKIE['NomeAdministrador']);
 unset($_COOKIE['emailAdministrador']);
 }
-
-
+}
 ?>
