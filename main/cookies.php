@@ -20,8 +20,8 @@ if ($professorLogin == "true"){
         }
     }
 
-    setcookie("nomeProfessor", $nome, time() + (86400 * 30), "/");
-    setcookie("emailProfessor", $email, time() + (86400 * 30), "/");
+    setcookie("nomeProfessor", $nome, time() + (86400 * 7), "/");
+    setcookie("emailProfessor", $email, time() + (86400 * 7), "/");
     if(isset($curso)){
     setcookie("curso", $curso, time() + (86400 * 30), "/");
     }
