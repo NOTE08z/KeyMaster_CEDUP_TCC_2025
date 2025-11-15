@@ -44,7 +44,7 @@ else if ($professorLogin == "false"){
     }
     setcookie("NomeAdministrador", $nome, time() + (86400 * 30), "/");
     setcookie("emailAdministrador", $email, time() + (86400 * 30), "/");
-    header("Location: ../telaAdmin/telaAdministrador.php");
+    header("Location: ../telaAdmin/telaInicial.php");
     exit;
 }
 
