@@ -5,6 +5,7 @@ $professorLogin = $_GET['professorLogin'];
 ?>
 
 
+
 <main>
 
   <div class="initial-container">
@@ -23,12 +24,14 @@ $professorLogin = $_GET['professorLogin'];
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
         <input type="password" name="senha" class="form-control" id="senha" value="">
-        <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 3 caracteres</p>
+        <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 8 caracteres</p>
       </div>
 
       <div class="mb-3">
         <label for="confirmaSenha" class="form-label">Confirme sua senha</label>
         <input type="password" name="confirmaSenha" class="form-control" id="confirmaSenha">
+        <p style = "color:red" id = "confirmaSenhaMinima">a senha deve ter no mínimo 8 caracteres</p>
+
 
       </div>
 
@@ -49,8 +52,10 @@ let email = document.getElementById("email");
 let senha = document.getElementById("senha");
 let confirmaSenha = document.getElementById("confirmaSenha");
 let p = document.getElementById("senhaMinima");
+let p2 = document.getElementById("confirmaSenhaMinima");
 
 p.style.display = "none";
+p2.style.display = "none";
 let button = document.getElementById("initialButton");
 button.disabled = true;
 senha.value.length = 0;
@@ -62,24 +67,43 @@ senha.addEventListener("input", validaForm);
 confirmaSenha.addEventListener("input", validaForm);
 
 function validaForm(){
-  console.log("entrou!");
-senhaValue="";
 if(senha.value.length < 1){
 p.style.display = "none";
 }
-else if (senha.value.length <3){
+else if(senha.value.length == 1){
+p.style.display = "block";
+}
+else if (senha.value.length <=7){
 p.style.display = "block";
 }
 else{
 p.style.display = "none";
 }
+if(confirmaSenha.value.length < 1){
+p2.style.display = "none";
+}
+else if(confirmaSenha.value.length == 1){
+p2.style.display = "block";
+}
+else if (confirmaSenha.value.length <=7){
+p2.style.display = "block";
+}
+else{
+p2.style.display = "none";
+}
 
 if(senha.value.length >= 3 && confirmaSenha.value.length >= 3 && nome.value.length >= 3 && email.value.length >= 3){
-button.disabled = false;
-}
+  
+  button.disabled = false;
+  button.addEventListener("click",  buttonAlert);
+}   
 else{
 button.disabled = true;
 }
 }
 
+function buttonAlert(){
+  alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
+  button.disabled = true;
+}
 </script>

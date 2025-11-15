@@ -14,7 +14,7 @@ $professorLogin = $_GET['professorLogin'];
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
         <input type="password" name="senha" class="form-control" id="senha">
-        <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 3 caracteres</p>
+        <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 8 caracteres</p>
   
       </div>
 
@@ -52,7 +52,7 @@ senhaValue="";
 if(senha.value.length < 1){
 p.style.display = "none";
 }
-else if (senha.value.length <3){
+else if (senha.value.length <=7){
 p.style.display = "block";
 }
 else{
