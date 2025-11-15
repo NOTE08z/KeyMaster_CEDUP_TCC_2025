@@ -1,5 +1,5 @@
 <?php
-include "../initialConfig/header.php";
+include "../initialConfig/conecta.php";
 echo "<br>"."<br>"."<br>"."<br>"."<br>";
 $professorLogin = $_GET['professorLogin'];
 $email = $_GET['email'];
@@ -49,21 +49,16 @@ header("Location: ../initialForms/telaAcesso.php");
 }
 
 if($count = 1 && password_verify($senha, $usuario['senha'])){
-echo "login confirmado";
 $loginConfirmado = true;
 
 }
 
 else{
-    header("Location: ../main/telaLogin.php?professorLogin=<?php $professorLogin?>");
+    header("Location: ../main/telaLogin.php?professorLogin=$professorLogin");
 }
 if($loginConfirmado == true){
-    if($professorLogin == true){
-    header("Location: ../main/cookies.php");
-    }
-    else{
-    header("Location: ../main/cookies.php");
-    }
+
+    header("Location: ../main/cookies.php?professorLogin=$professorLogin&email=$email");
 }
 else{
 header("Location: ../initialForms/telaLogin.php?professorLogin=$professorLogin");    

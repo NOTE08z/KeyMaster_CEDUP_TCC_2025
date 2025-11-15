@@ -32,7 +32,7 @@ $stmt -> execute();
 $count = (int)$stmt -> fetchColumn();
 echo "<br> ".$count;
 
-if($count < 6){
+if($count < 1){
     if ($professorLogin == "true"){
         $sql = "INSERT INTO professor (nome,email,senha) VALUES (:nome,:email,:senha)";
         $sql = $conn -> prepare($sql);

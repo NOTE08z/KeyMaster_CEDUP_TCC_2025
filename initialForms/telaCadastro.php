@@ -1,5 +1,5 @@
 <?php 
-include "../initialConfig/header.php"; 
+include "../initialConfig/InitialHeader.php"; 
 
 $professorLogin = $_GET['professorLogin'];
 ?>
@@ -29,7 +29,7 @@ $professorLogin = $_GET['professorLogin'];
 
       <div class="mb-3">
         <label for="confirmaSenha" class="form-label">Confirme sua senha</label>
-        <input type="password" name="confirmaSenha" class="form-control" id="confirmaSenha">
+        <input type="password" name="confirmaSenha" class="form-control" id="confirmaSenha" value="">
         <p style = "color:red" id = "confirmaSenhaMinima">a senha deve ter no mínimo 8 caracteres</p>
 
 
@@ -67,6 +67,9 @@ senha.addEventListener("input", validaForm);
 confirmaSenha.addEventListener("input", validaForm);
 
 function validaForm(){
+console.log(senha.value);
+console.log(confirmaSenha.value);
+
 if(senha.value.length < 1){
 p.style.display = "none";
 }
@@ -92,18 +95,23 @@ else{
 p2.style.display = "none";
 }
 
-if(senha.value.length >= 3 && confirmaSenha.value.length >= 3 && nome.value.length >= 3 && email.value.length >= 3){
+if(senha.value.length >= 8 && confirmaSenha.value.length >= 8 && nome.value.length >= 3 && email.value.length >= 3){
   
   button.disabled = false;
-  button.addEventListener("click",  buttonAlert);
-}   
-else{
+    if(senha.value != confirmaSenha.value){
+    button.addEventListener("click",  buttonAlert);
+} 
+}
+
+else if (senha.value.length < 2 || confirmaSenha.value.length < 2 || nome.value.length < 2 || email.value.length < 2){
 button.disabled = true;
 }
+
 }
 
 function buttonAlert(){
   alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
   button.disabled = true;
 }
+
 </script>

@@ -1,5 +1,5 @@
 <?php 
-include "../initialConfig/header.php";
+include "../initialConfig/InitialHeader.php";
 ?>
 
 </header>

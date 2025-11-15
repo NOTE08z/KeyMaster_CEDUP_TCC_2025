@@ -1,5 +1,5 @@
 <?php 
-include "../initialConfig/header.php"; 
+include "../initialConfig/InitialHeader.php"; 
 $professorLogin = $_GET['professorLogin'];
 ?>
 </header>
@@ -24,7 +24,6 @@ $professorLogin = $_GET['professorLogin'];
     <button type="submit" class="btn btn-primary" id="initialButton">Entrar</button>
     
     <a href="telaCadastro.php?professorLogin=<?php $professorLogin?>" class="formLink">Não Tem Cadastro?</a>
-    
     <input type="hidden" name="professorLogin" id="professorLogin" value="<?php echo $professorLogin?>">
   </form>
 
