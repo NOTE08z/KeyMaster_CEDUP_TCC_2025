@@ -60,5 +60,4 @@ unset($_COOKIE['curso']);
 unset($_COOKIE['NomeAdministrador']);
 unset($_COOKIE['emailAdministrador']);
 }
-
 ?>
