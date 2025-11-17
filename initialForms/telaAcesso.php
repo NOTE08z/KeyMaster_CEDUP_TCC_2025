@@ -22,7 +22,6 @@ include "../initialConfig/InitialHeader.php";
             </a>
 
         </div>
-    
     </div>
     <div class = "rightSide">
     <img src="../imagens/tela-acesso.png" alt="" class = "img-dourada">
