@@ -1,6 +1,6 @@
 <?php
 include "cookies.php";
-echo $_COOKIE['nomeAdministrador'];
+echo $_COOKIE['NomeAdministrador'];
 echo $_COOKIE['emailAdministrador'];
 
 ?>

@@ -27,13 +27,17 @@ $professorLogin = $_GET['professorLogin'];
         <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 8 caracteres</p>
       </div>
 
+    
       <div class="mb-3">
         <label for="confirmaSenha" class="form-label">Confirme sua senha</label>
         <input type="password" name="confirmaSenha" class="form-control" id="confirmaSenha" value="">
         <p style = "color:red" id = "confirmaSenhaMinima">a senha deve ter no mínimo 8 caracteres</p>
 
-
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Mostrar senhas</label>
       </div>
+    </div>
 
     <button type="submit" class="btn btn-primary" id="initialButton">Cadastrar</button>
     
@@ -53,7 +57,9 @@ let senha = document.getElementById("senha");
 let confirmaSenha = document.getElementById("confirmaSenha");
 let p = document.getElementById("senhaMinima");
 let p2 = document.getElementById("confirmaSenhaMinima");
+let checkbox = document.getElementById("exampleCheck1");
 
+checkbox.addEventListener("click", checkBox);
 p.style.display = "none";
 p2.style.display = "none";
 let button = document.getElementById("initialButton");
@@ -96,11 +102,13 @@ p2.style.display = "none";
 }
 
 if(senha.value.length >= 8 && confirmaSenha.value.length >= 8 && nome.value.length >= 3 && email.value.length >= 3){
-
+if(senha.value == confirmaSenha.value){
+  button.removeEventListener("click",  buttonAlert);
   button.disabled = false;
-  if(senha.value !== confirmaSenha.value){
+}
+  else if(senha.value != confirmaSenha.value){
     button.addEventListener("click",  buttonAlert);
-    } 
+    }
 }
 
 else if (senha.value.length < 2 || confirmaSenha.value.length < 2 || nome.value.length < 2 || email.value.length < 2){
@@ -110,6 +118,17 @@ button.disabled = true;
 function buttonAlert(){
   alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
   button.disabled = true;
+}
+
+function checkBox(){
+  if (checkbox.checked == true){
+    senha.type = "text";
+    confirmaSenha.type = "text";
+  }
+  else{
+    senha.type = "password";
+    confirmaSenha.type = "password";
+  }
 }
 
 </script>

@@ -1,7 +1,8 @@
 <?php
 include "../initialConfig/conecta.php";
-if (isset($_GET['email']) || isset($_GET['professorLogin'])){
+
 $email = $_GET['email'];
+echo "<br>".$email;
 $professorLogin = $_GET['professorLogin'];
 
 if ($professorLogin == "true"){
@@ -19,6 +20,7 @@ if ($professorLogin == "true"){
         $curso = $linha['curso'];
         }
     }
+    echo "<br>".$email;
 
     setcookie("nomeProfessor", $nome, time() + (86400 * 7), "/");
     setcookie("emailProfessor", $email, time() + (86400 * 7), "/");
@@ -42,6 +44,7 @@ else if ($professorLogin == "false"){
         $nome = $linha['nome'];
         $email = $linha['email'];
     }
+    echo "<br>".$email;
     setcookie("NomeAdministrador", $nome, time() + (86400 * 30), "/");
     setcookie("emailAdministrador", $email, time() + (86400 * 30), "/");
     header("Location: ../telaAdmin/telaInicial.php");
@@ -57,5 +60,5 @@ unset($_COOKIE['curso']);
 unset($_COOKIE['NomeAdministrador']);
 unset($_COOKIE['emailAdministrador']);
 }
-}
+
 ?>

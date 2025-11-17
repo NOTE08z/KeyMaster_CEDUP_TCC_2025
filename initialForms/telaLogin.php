@@ -16,6 +16,10 @@ $professorLogin = $_GET['professorLogin'];
         <input type="password" name="senha" class="form-control" id="senha">
         <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 8 caracteres</p>
   
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Mostrar senhas</label>
+      </div>
       </div>
 
       <div class="mb-3">
@@ -41,6 +45,9 @@ let button = document.getElementById("initialButton");
 button.disabled = true;
 senha.value.length = 0;
 console.log(senha.value.length);
+let checkbox = document.getElementById("exampleCheck1");
+
+checkbox.addEventListener("click", checkBox);
 
 email.addEventListener("input", validaForm);
 senha.addEventListener("input", validaForm);
@@ -66,6 +73,16 @@ button.disabled = true;
 }
 }
 
+
+function checkBox(){
+  if (checkbox.checked == true){
+    senha.type = "text";
+  }
+  else{
+    senha.type = "password";
+  }
+}
+
 </script>
 
 
@@ -73,5 +90,4 @@ button.disabled = true;
 
 
 
-</script>
 
