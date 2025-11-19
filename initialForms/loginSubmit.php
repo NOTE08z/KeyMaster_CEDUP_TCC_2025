@@ -1,6 +1,5 @@
 <?php
 include "../initialConfig/conecta.php";
-echo "<br>"."<br>"."<br>"."<br>"."<br>";
 $professorLogin = $_GET['professorLogin'];
 $email = $_GET['email'];
 $senha = $_GET['senha'];

@@ -41,7 +41,7 @@ $professorLogin = $_GET['professorLogin'];
 
     <button type="submit" class="btn btn-primary" id="initialButton">Cadastrar</button>
     
-    <a href="telaLogin.php?professorLogin=<?php $professorLogin?>" class="formLink">Já tem cadastro?</a>
+    <a href="telaLogin.php?professorLogin=<?php echo $professorLogin?>" class="formLink">Já tem cadastro?</a>
     
     <input type="hidden" name="professorLogin" id="professorLogin" value="<?php echo $professorLogin?>">
   </form>
