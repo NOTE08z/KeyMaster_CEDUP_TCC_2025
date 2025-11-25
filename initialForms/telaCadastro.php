@@ -23,8 +23,11 @@ $professorLogin = $_GET['professorLogin'];
 
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
+        <div>
         <input type="password" name="senha" class="form-control" id="senha" value="">
-        <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 8 caracteres</p>
+        <input type="checkbox" class="form-check-input" id="senhaCheckBox">
+        </div>
+      <p style = "color:red" id = "senhaMinima">a senha deve ter no mínimo 8 caracteres</p>
       </div>
 
     
@@ -34,14 +37,13 @@ $professorLogin = $_GET['professorLogin'];
         <p style = "color:red" id = "confirmaSenhaMinima">a senha deve ter no mínimo 8 caracteres</p>
 
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Mostrar senhas</label>
+        <input type="checkbox" class="form-check-input" id="confirmaSenhaCheckBox">
       </div>
     </div>
 
     <button type="submit" class="btn btn-primary" id="initialButton">Cadastrar</button>
     
-    <a href="telaLogin.php?professorLogin=<?php $professorLogin?>" class="formLink">Já tem cadastro?</a>
+    <a href="telaLogin.php?professorLogin=<?php echo $professorLogin;?>" class="formLink">Já tem cadastro?</a>
     
     <input type="hidden" name="professorLogin" id="professorLogin" value="<?php echo $professorLogin?>">
   </form>
@@ -49,17 +51,24 @@ $professorLogin = $_GET['professorLogin'];
 </div>
 
 </main>
-
+<script src="validaForm.js"></script>
 <script>
+  let form = document.getElementById("formCadastro");
 let nome = document.getElementById("nome");
 let email = document.getElementById("email");
-let senha = document.getElementById("senha");
+const senha = document.getElementById("senha");
 let confirmaSenha = document.getElementById("confirmaSenha");
 let p = document.getElementById("senhaMinima");
 let p2 = document.getElementById("confirmaSenhaMinima");
-let checkbox = document.getElementById("exampleCheck1");
+let checkBox1 = document.getElementById("senhaCheckBox");
+checkBox1.addEventListener("click", function(){
+checkBox(senha,checkBox1);
+});
+let checkBox2 = document.getElementById("confirmaSenhaCheckBox");
+checkBox2.addEventListener("click",function(){
+checkBox(confirmaSenha, checkBox2);
+});
 
-checkbox.addEventListener("click", checkBox);
 p.style.display = "none";
 p2.style.display = "none";
 let button = document.getElementById("initialButton");
@@ -67,68 +76,40 @@ button.disabled = true;
 senha.value.length = 0;
 console.log(senha.value.length);
 
-nome.addEventListener("input", validaForm);
-email.addEventListener("input", validaForm);
-senha.addEventListener("input", validaForm);
-confirmaSenha.addEventListener("input", validaForm);
+form.addEventListener("change", checkButton)
 
-function validaForm(){
-console.log(senha.value);
-console.log(confirmaSenha.value);
+senha.addEventListener("focus", function(){
+validaSenha(senha, 8, p);
+});
+senha.addEventListener("input", function(){
+validaSenha(senha, 8, p);
+});
 
-if(senha.value.length < 1){
-p.style.display = "none";
-}
-else if(senha.value.length == 1){
-p.style.display = "block";
-}
-else if (senha.value.length <=7){
-p.style.display = "block";
-}
-else{
-p.style.display = "none";
-}
-if(confirmaSenha.value.length < 1){
-p2.style.display = "none";
-}
-else if(confirmaSenha.value.length == 1){
-p2.style.display = "block";
-}
-else if (confirmaSenha.value.length <=7){
-p2.style.display = "block";
-}
-else{
-p2.style.display = "none";
-}
+confirmaSenha.addEventListener("focus", function(){
+validaSenha(confirmaSenha, 8, p2);
+});
+senha.addEventListener("input", function(){
+validaSenha(confirmaSenha, 8, p2);
+});
 
-if(senha.value.length >= 8 && confirmaSenha.value.length >= 8 && nome.value.length >= 3 && email.value.length >= 3){
-if(senha.value == confirmaSenha.value){
-  button.removeEventListener("click",  buttonAlert);
-  button.disabled = false;
+function checkButton(){
+  console.log("está funfando");
+
+  if(senha.value.length >= 8 && confirmaSenha.value.length >= 8 && nome.value.length >= 3 && email.value.length >= 3){
+    if(senha.value == confirmaSenha.value){
+    button.removeEventListener("click",  buttonAlert);
+    button.disabled = false;
 }
   else if(senha.value != confirmaSenha.value){
     button.addEventListener("click",  buttonAlert);
-    }
+  }
 }
-
-else if (senha.value.length < 2 || confirmaSenha.value.length < 2 || nome.value.length < 2 || email.value.length < 2){
-button.disabled = true;
-}}
-
+  else if (senha.value.length < 2 || confirmaSenha.value.length < 2 || nome.value.length < 2 || email.value.length < 2){
+  button.disabled = true;
+}
 function buttonAlert(){
   alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
   button.disabled = true;
 }
-
-function checkBox(){
-  if (checkbox.checked == true){
-    senha.type = "text";
-    confirmaSenha.type = "text";
-  }
-  else{
-    senha.type = "password";
-    confirmaSenha.type = "password";
-  }
 }
-
 </script>

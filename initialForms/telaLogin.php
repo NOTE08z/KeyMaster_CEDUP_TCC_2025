@@ -27,13 +27,13 @@ $professorLogin = $_GET['professorLogin'];
 
     <button type="submit" class="btn btn-primary" id="initialButton">Entrar</button>
     
-    <a href="telaCadastro.php?professorLogin=<?php $professorLogin?>" class="formLink">Não Tem Cadastro?</a>
-    <input type="hidden" name="professorLogin" id="professorLogin" value="<?php echo $professorLogin?>">
+    <a href="telaCadastro.php?professorLogin=<?php echo $professorLogin;?>" class="formLink">Não Tem Cadastro?</a>
+    <input type="hidden" name="professorLogin" id="professorLogin" value="<?php echo $professorLogin;?>">
   </form>
 
 </div>
 </main>
-
+<script> src="validaForm.js"</script>
 <script>
 
 let email = document.getElementById("email");
@@ -45,44 +45,37 @@ let button = document.getElementById("initialButton");
 button.disabled = true;
 senha.value.length = 0;
 console.log(senha.value.length);
+
 let checkbox = document.getElementById("exampleCheck1");
+checkbox.addEventListener("click", function(){
+checkBox()
+});
 
-checkbox.addEventListener("click", checkBox);
+senha.addEventListener("focus", function(){
+validaSenha(senha, 8, p);
+});
+senha.addEventListener("input", function(){
+validaSenha(senha, 8, p);
+});
 
-email.addEventListener("input", validaForm);
-senha.addEventListener("input", validaForm);
-
-function validaForm(){
-  console.log("entrou!");
-senhaValue="";
-if(senha.value.length < 1){
-p.style.display = "none";
+if(senha.value.length >= 8 && confirmaSenha.value.length >= 8 && nome.value.length >= 3 && email.value.length >= 3){
+if(senha.value == confirmaSenha.value){
+  button.removeEventListener("click",  buttonAlert);
+  button.disabled = false;
 }
-else if (senha.value.length <=7){
-p.style.display = "block";
-}
-else{
-p.style.display = "none";
+  else if(senha.value != confirmaSenha.value){
+    button.addEventListener("click",  buttonAlert);
+    }
 }
 
-if(senha.value.length >= 8 && email.value.length >= 3){
-button.disabled = false;
-}
-else{
+else if (senha.value.length < 2 || confirmaSenha.value.length < 2 || nome.value.length < 2 || email.value.length < 2){
 button.disabled = true;
 }
+
+function buttonAlert(){
+  alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
+  button.disabled = true;
 }
-
-
-function checkBox(){
-  if (checkbox.checked == true){
-    senha.type = "text";
-  }
-  else{
-    senha.type = "password";
-  }
-}
-
 </script>
 
 
