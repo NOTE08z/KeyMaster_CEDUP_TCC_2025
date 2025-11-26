@@ -1,5 +1,7 @@
 <?php 
 include "../initialConfig/conecta.php";
+$nome = $_COOKIE['NomeAdministrador'];
+$email = $_COOKIE['emailAdministrador'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

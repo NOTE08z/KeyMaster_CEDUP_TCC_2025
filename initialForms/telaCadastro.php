@@ -57,7 +57,7 @@ $professorLogin = $_GET['professorLogin'];
 let nome = document.getElementById("nome");
 let email = document.getElementById("email");
 const senha = document.getElementById("senha");
-let confirmaSenha = document.getElementById("confirmaSenha");
+const confirmaSenha = document.getElementById("confirmaSenha");
 let p = document.getElementById("senhaMinima");
 let p2 = document.getElementById("confirmaSenhaMinima");
 let checkBox1 = document.getElementById("senhaCheckBox");
@@ -76,7 +76,7 @@ button.disabled = true;
 senha.value.length = 0;
 console.log(senha.value.length);
 
-form.addEventListener("change", checkButton)
+form.addEventListener("change", checkButton);
 
 senha.addEventListener("focus", function(){
 validaSenha(senha, 8, p);
