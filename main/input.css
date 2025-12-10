@@ -1,0 +1,116 @@
+/* ======== LAYOUT GERAL ======== */
+body {
+    background: #222;
+    color: #f4d03f;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ======== CONTAINER DO FORM ======== */
+.form-box {
+    background: #1c1c1c;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    width: 450px;
+    text-align: center;
+    box-shadow: 0 0 10px #000;
+}
+
+/* ======== INPUTS ======== */
+input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #f4d03f;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #f4d03f;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+/* Ajuste da cor do texto do calendário em navegadores que usam controles internos */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+input[type="text"]:disabled,
+input[type="date"]:disabled {
+    color: #888;
+    border-color: #555;
+}
+
+input[type="text"]:disabled {
+    color: #888;
+    border-color: #555;
+}
+
+/* ======== BOTÕES ======== */
+input[type="submit"],
+#button {
+    background: #f4d03f;
+    color: #000;
+    width: 90%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+input[type="submit"]:hover,
+#button:hover {
+    background: #d6b231;
+}
+
+.a{
+
+    color: #f4d03f;
+
+}
+/* ======== LINK VOLTAR ======== */
+.a a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.a a:hover {
+    text-decoration: underline;
+}
+/* ======== LABELS ======== */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f4d03f;
+    text-align: left;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+

@@ -1,0 +1,71 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo */
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #222;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+
+.btn-filtrar {
+    background: #222;             /* fundo escuro */
+    color: #f4d03f;               /* texto amarelo */
+    border: 1px solid #f4d03f;    /* borda amarela */
+    padding: 6px 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-filtrar:hover {
+    background: #f4d03f;          /* fundo amarelo */
+    color: #222;                  /* texto preto */
+}
+
+
+
+/* HEADER FIXO */
+.topo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #000;
+  padding: 0 60px;
+  z-index: 999;
+}
+
+/* CONTAINER DA LOGO */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon {
+  width: 36px;
+  margin-right: 10px;
+}
+
+.keymaster-logo-text {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  font-size: 26px;
+  letter-spacing: 1px;
+}

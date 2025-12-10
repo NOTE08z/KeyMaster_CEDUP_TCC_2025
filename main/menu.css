@@ -1,0 +1,124 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: black;
+  height: 10vh;
+}
+nav img {
+    max-width:80px;
+    max-height:36px;
+    width: auto;
+    height: auto;
+}
+nav span{
+   font-family: "LeagueSpartan-SemiBold", sans-serif;
+  font-size: 2vw;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  user-select: none;
+  text-decoration: none;
+  margin: 0;
+}
+/* LOGO */
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 65%;
+}
+
+.header-icon {
+  width: 55px;
+  height: 55px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.keymaster-logo-text {
+  font-size: 26px;
+  font-weight: bold;
+  color: #FFD000;
+}
+
+/* NAV LISTA */
+.nav-list {
+  list-style: none;
+  display: flex;
+  z-index: 3;
+
+}
+.nav-list li{
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+.nav-list a {
+  color: rgb(255, 222, 89);
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.nav-list a:hover {
+  color: white;
+}
+
+/* ICON MENU MOBILE */
+.menu-button {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  max-width:32px;
+  max-height:32px;
+}
+.open-menu{
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  max-width:32px;
+  max-height:32px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 10000px) {
+  body{
+
+    overflow-x: h;
+
+  }
+  .menu-button {
+    display: flex;
+  }
+  .open-menu{
+   display: flex;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    width: 15vw;
+    height: 90vh;
+    background: #2D2D2D;
+    z-index: 2;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(100%);
+  }
+  .nav-list li{
+    margin-left: 0;
+  }
+
+  .nav-list.active {
+    transform: translateX(0);
+  }
+}
